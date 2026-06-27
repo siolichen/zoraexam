@@ -4,6 +4,9 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>文章｜國考學姐 Zora</title>
+<meta name="description" content="國考學姐 Zora 的穩定上岸系列文章。">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="國考學姐 Zora">
 <link rel="icon" type="image/png" href="assets/favicon.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -35,7 +38,7 @@
   .article__tag{ display:inline-block; white-space:nowrap; font-size:.78rem; font-weight:700; letter-spacing:.12em;
     color:var(--coral-text); background:#F6D9C9; padding:6px 14px; border-radius:999px; }
   .article__title{ font-family:var(--serif); color:var(--green); font-weight:700;
-    font-size:clamp(1.7rem,4.2vw,2.5rem); line-height:1.5; margin:18px 0 12px; text-wrap:balance; }
+    font-size:clamp(1.7rem,4.2vw,2.5rem); line-height:1.5; margin:18px 0 12px; text-wrap:pretty; }
   .article__date{ color:var(--ink-soft); font-size:.92rem; margin:0 0 30px; }
   .article__cover{ width:100%; border-radius:20px; margin:0 0 38px; display:block;
     box-shadow:0 24px 46px -28px rgba(120,74,46,.45); }
@@ -98,6 +101,7 @@ var SANITY = {
   dataset   : 'production',
   apiVersion: '2024-01-01'
 };
+var SITE = 'https://www.zoraexam.com';  // 你的正式網域（結尾不加斜線）
 
 (function(){
   var main = document.getElementById('main');
@@ -175,6 +179,48 @@ var SANITY = {
     return d.getFullYear()+' 年 '+(d.getMonth()+1)+' 月 '+d.getDate()+' 日';
   }
 
+  function clip(t,n){ t=String(t||'').replace(/\s+/g,' ').trim(); return t.length>n ? t.slice(0,n)+'…' : t; }
+
+  function upsertMeta(attr, key, content){
+    if(!content){ return; }
+    var el = document.head.querySelector('meta['+attr+'="'+key+'"]');
+    if(!el){ el = document.createElement('meta'); el.setAttribute(attr, key); document.head.appendChild(el); }
+    el.setAttribute('content', content);
+  }
+  function setCanonical(url){
+    var el = document.head.querySelector('link[rel="canonical"]');
+    if(!el){ el = document.createElement('link'); el.setAttribute('rel','canonical'); document.head.appendChild(el); }
+    el.setAttribute('href', url);
+  }
+  function setSeo(post){
+    var desc = clip(post.excerpt || post.title, 155);
+    var canonical = SITE + location.pathname + location.search;
+    upsertMeta('name','description', desc);
+    upsertMeta('property','og:type','article');
+    upsertMeta('property','og:title', post.title);
+    upsertMeta('property','og:description', desc);
+    upsertMeta('property','og:url', canonical);
+    if(post.cover){ upsertMeta('property','og:image', post.cover); }
+    upsertMeta('name','twitter:card', post.cover ? 'summary_large_image' : 'summary');
+    upsertMeta('name','twitter:title', post.title);
+    upsertMeta('name','twitter:description', desc);
+    if(post.cover){ upsertMeta('name','twitter:image', post.cover); }
+    setCanonical(canonical);
+    var ld = {
+      '@context':'https://schema.org','@type':'Article',
+      'headline': post.title,
+      'description': desc,
+      'image': post.cover ? [post.cover] : undefined,
+      'datePublished': post.publishedAt || undefined,
+      'author': {'@type':'Person','name':'國考學姐 Zora'},
+      'publisher': {'@type':'Organization','name':'國考學姐 Zora'},
+      'mainEntityOfPage': {'@type':'WebPage','@id': canonical}
+    };
+    var s = document.getElementById('ld-json');
+    if(!s){ s = document.createElement('script'); s.id='ld-json'; s.type='application/ld+json'; document.head.appendChild(s); }
+    s.textContent = JSON.stringify(ld);
+  }
+
   function render(post){
     document.title = (post.title||'文章') + '｜國考學姐 Zora';
     var html = '<article class="article">';
@@ -186,6 +232,7 @@ var SANITY = {
     html += '</article>';
     html += '<div class="backlink"><a href="guide.html">← 看更多穩定上岸系列文章</a></div>';
     main.innerHTML = html;
+    setSeo(post);
   }
 
   /* ---- fetch ---- */
@@ -202,6 +249,7 @@ var SANITY = {
             + 'title,publishedAt,'
             + '"tag":coalesce(category, categories[0]->title),'
             + '"cover":mainImage.asset->url,'
+            + '"excerpt":pt::text(body),'
             + 'body[]{...,"url":asset->url}'
             + '}';
   var url = 'https://'+SANITY.projectId+'.apicdn.sanity.io/v'+SANITY.apiVersion
