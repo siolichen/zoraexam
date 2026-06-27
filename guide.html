@@ -101,7 +101,7 @@
       <h1>穩定上岸指南</h1>
       <p>超詳細的國家考試穩定上岸，你需要知道的一切。讀書方法、申論寫作、時間安排、心態調整——系列文章書寫中。</p>
     </div>
-    <div class="cats reveal in d1">
+    <div class="cats reveal in d1" id="cats">
       <a href="#" class="on">全部文章</a>
       <a href="#">策略思維</a>
       <a href="#">申論寫作</a>
@@ -116,7 +116,7 @@
   <div class="wrap">
 
     <!-- FEATURED (sticky post) -->
-    <article class="featured reveal">
+    <article class="featured reveal" id="featured">
       <div class="featured__img">
         <span class="featured__tag">置頂・必讀</span>
         <image-slot id="guide-featured" placeholder="放上置頂文章封面圖" radius="0"></image-slot>
@@ -131,7 +131,7 @@
     </article>
 
     <!-- LIST -->
-    <div class="list">
+    <div class="list" id="post-list">
       <article class="post reveal d1">
         <div class="post__img"><span class="post__tag">申論寫作</span><image-slot id="guide-1" placeholder="封面圖" radius="0"></image-slot></div>
         <div class="post__body"><h3>申論差幾分？補足上榜關鍵 1、2 分的答題結構</h3><p>閱卷老師到底在看什麼？用可複製的框架，把會的東西穩穩變成分數。</p>
@@ -206,6 +206,87 @@ const burger=document.getElementById('burger'), links=document.getElementById('n
 burger&&burger.addEventListener('click',()=>links.classList.toggle('open'));
 const io=new IntersectionObserver((es)=>{es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target);}})},{threshold:.1});
 document.querySelectorAll('.reveal:not(.in)').forEach(el=>io.observe(el));
+
+/* ===== Sanity：列出所有已發佈文章 ===== */
+var SANITY = { projectId:'j8qrcd98', dataset:'production', apiVersion:'2024-01-01' };
+(function(){
+  if(!SANITY.projectId || SANITY.projectId==='YOUR_PROJECT_ID') return;
+
+  function esc(s){ return String(s==null?'':s)
+    .replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;'); }
+  function fmtDate(iso){ if(!iso) return ''; var d=new Date(iso); if(isNaN(d)) return '';
+    return d.getFullYear()+'.'+String(d.getMonth()+1).padStart(2,'0')+'.'+String(d.getDate()).padStart(2,'0'); }
+  function clip(t,n){ t=(t||'').replace(/\s+/g,' ').trim(); return t.length>n ? t.slice(0,n)+'…' : t; }
+  function href(p){ return p.slug ? 'article.html?slug='+encodeURIComponent(p.slug)
+                                  : 'article.html?id='+encodeURIComponent(p.id); }
+
+  var query = '*[_type=="post" && !(_id in path("drafts.**"))]'
+            + '|order(featured desc, coalesce(publishedAt,_createdAt) desc)'
+            + '{title,"slug":slug.current,"id":_id,"cover":mainImage.asset->url,'
+            + '"tag":coalesce(category, categories[0]->title),featured,publishedAt,"excerpt":pt::text(body)}';
+  var url='https://'+SANITY.projectId+'.apicdn.sanity.io/v'+SANITY.apiVersion
+        +'/data/query/'+SANITY.dataset+'?query='+encodeURIComponent(query);
+
+  fetch(url).then(function(r){return r.json();}).then(function(res){
+    var posts=(res&&res.result)||[];
+    if(!posts.length) return;                 // 沒文章就維持示意版型
+
+    var featured=document.getElementById('featured');
+    var listEl=document.getElementById('post-list');
+    var catsEl=document.getElementById('cats');
+    var pager=document.querySelector('.pager');
+    var wpnote=document.querySelector('.wpnote');
+    if(pager) pager.style.display='none';
+    if(wpnote) wpnote.style.display='none';
+
+    /* featured = 最新一篇 */
+    var f=posts[0];
+    if(featured){
+      featured.innerHTML =
+        '<div class="featured__img" style="background:'+(f.cover?'url('+f.cover+') center/cover':'var(--card-warm)')+';">'
+        + '<span class="featured__tag">'+(f.featured?'置頂・必讀':'最新文章')+'</span></div>'
+        + '<div class="featured__body">'
+        + (f.tag?'<span class="eyebrow">'+esc(f.tag)+'</span>':'')
+        + '<h2>'+esc(f.title)+'</h2>'
+        + (f.excerpt?'<p>'+esc(clip(f.excerpt,90))+'</p>':'')
+        + '<div class="meta"><span>國考學姐</span>'+(f.publishedAt?'<span class="dot"></span><span>'+fmtDate(f.publishedAt)+'</span>':'')+'</div>'
+        + '<a class="btn btn--coral" style="margin-top:24px;align-self:flex-start;" href="'+href(f)+'">閱讀全文 <span class="arr">→</span></a>'
+        + '</div>';
+    }
+
+    /* 其餘文章 */
+    var rest=posts.slice(1);
+    function card(p){
+      return '<a class="post reveal in" href="'+href(p)+'" style="text-decoration:none;color:inherit;">'
+        + '<div class="post__img" style="background:'+(p.cover?'url('+p.cover+') center/cover':'var(--card-warm)')+';">'
+        + (p.tag?'<span class="post__tag">'+esc(p.tag)+'</span>':'')+'</div>'
+        + '<div class="post__body"><h3>'+esc(p.title)+'</h3>'
+        + (p.excerpt?'<p>'+esc(clip(p.excerpt,58))+'</p>':'<p></p>')
+        + '<div class="post__foot"><span class="meta">'+fmtDate(p.publishedAt)+'</span><span class="post__more">閱讀 →</span></div>'
+        + '</div></a>';
+    }
+    function renderList(items){
+      if(!listEl) return;
+      listEl.innerHTML = items.length ? items.map(card).join('')
+        : '<p style="grid-column:1/-1;color:var(--ink-soft);text-align:center;padding:30px 0;">這個分類還沒有文章</p>';
+    }
+    renderList(rest);
+
+    /* 分類篩選（依文章實際出現的分類） */
+    if(catsEl){
+      var tags=[]; posts.forEach(function(p){ if(p.tag && tags.indexOf(p.tag)<0) tags.push(p.tag); });
+      catsEl.innerHTML = '<a href="#" class="on" data-tag="">全部文章</a>'
+        + tags.map(function(t){ return '<a href="#" data-tag="'+esc(t)+'">'+esc(t)+'</a>'; }).join('');
+      catsEl.addEventListener('click',function(e){
+        var a=e.target.closest('a'); if(!a) return; e.preventDefault();
+        catsEl.querySelectorAll('a').forEach(function(x){x.classList.remove('on');});
+        a.classList.add('on');
+        var t=a.getAttribute('data-tag');
+        renderList(t ? rest.filter(function(p){return p.tag===t;}) : rest);
+      });
+    }
+  }).catch(function(e){ console.warn('Sanity 文章列表載入失敗，沿用示意版型：',e); });
+})();
 </script>
 </body>
 </html>

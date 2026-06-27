@@ -313,7 +313,7 @@ var SANITY = {
   var grid = document.getElementById('guide-grid');
   if(!grid) return;
   var query = '*[_type=="post" && !(_id in path("drafts.**"))]'
-            + '|order(coalesce(publishedAt,_createdAt) desc)[0...3]'
+            + '|order(featured desc, coalesce(publishedAt,_createdAt) desc)[0...3]'
             + '{title,"slug":slug.current,"id":_id,"cover":mainImage.asset->url,'
             + '"tag":coalesce(category, categories[0]->title)}';
   var url = 'https://' + SANITY.projectId + '.apicdn.sanity.io/v' + SANITY.apiVersion
@@ -329,7 +329,7 @@ var SANITY = {
           : '<div class="gcard__ph">文章封面<br><small>' + (p.tag || '系列文章') + '</small></div>';
         var href = p.slug ? ('article.html?slug=' + encodeURIComponent(p.slug))
                           : ('article.html?id=' + encodeURIComponent(p.id));
-        return '<a class="gcard reveal in" href="' + href + '" style="text-decoration:none;display:block;">' + ph
+        return '<a class="gcard reveal in" href="' + href + '" style="text-decoration:none;color:inherit;">' + ph
              + '<div class="gcard__b"><span class="gcard__tag">' + (p.tag || '')
              + '</span><h3>' + (p.title || '') + '</h3></div></a>';
       }).join('');

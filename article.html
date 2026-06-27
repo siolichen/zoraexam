@@ -202,7 +202,7 @@ var SANITY = {
             + 'title,publishedAt,'
             + '"tag":coalesce(category, categories[0]->title),'
             + '"cover":mainImage.asset->url,'
-            + 'body[]{...,_type=="image" => {"url":asset->url,"alt":alt}}'
+            + 'body[]{...,"url":asset->url}'
             + '}';
   var url = 'https://'+SANITY.projectId+'.apicdn.sanity.io/v'+SANITY.apiVersion
           + '/data/query/'+SANITY.dataset+'?query='+encodeURIComponent(query);
