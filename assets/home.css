@@ -396,8 +396,12 @@ p{ margin:0; text-wrap:pretty; }
   .news__top{ grid-template-columns:1fr; gap:18px; text-align:left; }
   .news__title{ font-size:clamp(1.5rem,5.5vw,2rem); }
   .news__writer{ justify-self:center; max-width:220px; }
+  .news__form{ justify-content:flex-start; flex-direction:column; align-items:stretch; }
+  .news__form input{ min-width:0; width:100%; max-width:none; flex:none; }
+  .news__form button{ align-self:flex-start; }
   .news__copy p{ max-width:none; }
-  .news__form{ justify-content:flex-start; }
+  /* mobile only: justify body text (左右對齊) */
+  .pcard p, .about__copy, .free__copy p, .citem__b p, .coach__lead, .ccard p, .declare p, .news__copy p, .about__intro > p, .free__lead, .free__note{ text-align:justify; }
   .footer__in{ flex-direction:column; text-align:center; }
 }
 @media (max-width:560px){
