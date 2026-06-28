@@ -402,6 +402,8 @@ p{ margin:0; text-wrap:pretty; }
   .news__copy p{ max-width:none; }
   /* mobile only: justify body text (左右對齊) */
   .pcard p, .about__copy, .free__copy p, .citem__b p, .coach__lead, .ccard p, .declare p, .news__copy p, .about__intro > p, .free__lead, .free__note{ text-align:justify; }
+  /* mobile: body text max 80% width, centered for more side breathing room */
+  .about__intro > p, .about__copy, .free__copy p, .free__lead, .free__note, .coach__lead, .news__copy p{ max-width:80vw; margin-left:auto; margin-right:auto; }
   .footer__in{ flex-direction:column; text-align:center; }
 }
 @media (max-width:560px){
