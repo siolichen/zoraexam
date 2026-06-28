@@ -107,7 +107,7 @@ p{ margin:0; text-wrap:pretty; }
 .hero h1{ font-size:clamp(1.4rem,3.4vw,3.1rem); color:var(--green); line-height:1.5; letter-spacing:.02em; position:relative; }
 .hero__sub{ margin-top:22px; font-size:clamp(.85rem,1.6vw,1.35rem); color:var(--coral-text); font-weight:500; line-height:1.9; }
 .hero__btn{ margin-top:32px; }
-.hero__star{ position:absolute; top:-10%; left:-9%; width:clamp(52px,6vw,92px); height:auto;
+.hero__star{ position:absolute; top:-22%; left:-15%; width:clamp(52px,6vw,92px); height:auto;
   pointer-events:none; transform-origin:center;
   animation:starPulse 4s ease-in-out infinite; }
 @keyframes starPulse{ 0%,100%{ transform:scale(.6) rotate(-6deg); } 50%{ transform:scale(1.35) rotate(-6deg); } }
@@ -199,7 +199,7 @@ p{ margin:0; text-wrap:pretty; }
 .pcard:hover{ transform:translateY(-6px); box-shadow:var(--sh-md); }
 .pcard__heart{ position:absolute; top:-50px; left:50%; transform:translateX(-50%); width:clamp(112px,57%,153px); }
 .pcard h3{ font-size:1.22rem; color:var(--coral-text); margin-bottom:18px; line-height:1.7; }
-.pcard p{ color:var(--ink-soft); font-size:.98rem; line-height:2; text-align:justify; }
+.pcard p{ color:var(--ink-soft); font-size:.98rem; line-height:2; text-align:left; }
 .sticker{
   position:relative; z-index:5; max-width:880px; margin:150px auto -150px; background:#FBF6EC;
   border-radius:6px; padding:30px 44px; text-align:center; rotate:-1.4deg;
@@ -218,7 +218,7 @@ p{ margin:0; text-wrap:pretty; }
 .about__pen{ width:100%; max-width:470px; margin:50px 0 110px; }
 .about__body{ display:grid; grid-template-columns:1.05fr .95fr; gap:64px; align-items:center; margin-top:10px; }
 .about__quote{ color:var(--coral-text); font-size:clamp(1.4rem,2.7vw,2rem); line-height:1.7; margin-bottom:30px; }
-.about__copy{ color:var(--green); font-size:1.06rem; line-height:2.2; text-align:justify; }
+.about__copy{ color:var(--green); font-size:1.06rem; line-height:2.2; text-align:left; }
 .about__photo{ position:relative; justify-self:center; max-width:323px; }
 .about__photo::before{
   content:""; position:absolute; inset:-18px -18px auto auto; width:78%; height:86%;
@@ -266,7 +266,7 @@ p{ margin:0; text-wrap:pretty; }
 
 /* 30-min consultation checklist (right column of FREE) */
 .free__plan{ align-self:start; }
-.free__lead{ display:block; margin-top:4px; color:var(--coral-text); font-weight:700; font-size:1.2rem; line-height:1.7; text-align:justify; }
+.free__lead{ display:block; margin-top:4px; color:var(--coral-text); font-weight:700; font-size:1.2rem; line-height:1.7; text-align:left; }
 .free__spark{ color:var(--coral); font-size:1.1em; margin-right:.35em; }
 .checklist{ list-style:none; margin:26px 0 0; padding:0; display:flex; flex-direction:column; gap:26px; }
 .citem{ display:flex; gap:20px; align-items:flex-start; padding-bottom:26px; border-bottom:1px solid #E7DCC8; }
@@ -297,7 +297,7 @@ p{ margin:0; text-wrap:pretty; }
 .declare p{ color:var(--ink); line-height:2; }
 .declare p + p{ margin-top:10px; }
 .declare b{ color:var(--coral-text); }
-.free__copy p, .citem__b p, .coach__lead, .ccard p, .declare p, .news__copy p, .about__intro > p, .free__note{ text-align:justify; }
+.free__copy p, .citem__b p, .coach__lead, .ccard p, .declare p, .news__copy p, .about__intro > p, .free__note{ text-align:left; }
 
 /* =================== 6 · GUIDE =================== */
 .guide{ background:var(--cream); padding:110px 0 50px; }
@@ -369,8 +369,10 @@ p{ margin:0; text-wrap:pretty; }
   /* hero stacks: copy on top, banner below */
   .hero{ display:flex; flex-direction:column-reverse; padding-top:0; }
   .hero__inner{ position:relative; inset:auto; padding:34px 24px 6px; pointer-events:auto; }
-  .hero__copy{ position:relative; max-width:none; text-align:center; }
-  .hero__star{ position:relative; display:inline-block; top:-.1em; left:0; right:auto; width:34px; height:auto; margin:0 .12em 0 0; vertical-align:top; }
+  .hero__copy{ position:static; max-width:none; text-align:left; }
+  .hero h1{ font-size:clamp(1.75rem,6.8vw,2.2rem); }
+  .hero__l1{ position:relative; }
+  .hero__star{ position:absolute; display:block; top:-.8em; left:-.62em; right:auto; width:1.55em; height:auto; margin:0; vertical-align:baseline; }
   .hero__banner{ margin:0; }
 
 
