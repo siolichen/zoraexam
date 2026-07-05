@@ -13,9 +13,62 @@
 <meta property="og:url" content="https://www.zoraexam.com/guide.html">
 <meta property="og:image" content="https://www.zoraexam.com/assets/banner.webp">
 <meta name="twitter:card" content="summary_large_image">
+<meta name="keywords" content="國考學姐,國考,國家考試,國考陪跑,高普,公務員,穩定上岸,讀書方法">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Blog",
+  "name": "穩定上岸指南",
+  "url": "https://www.zoraexam.com/guide.html",
+  "inLanguage": "zh-Hant",
+  "author": { "@type": "Person", "name": "國考學姐 Zora" },
+  "about": ["國考", "國家考試", "高普考", "公務員考試", "國考陪跑"],
+  "description": "國考學姐 Zora 撰寫的國家考試穩定上岸系列文章：讀書方法、申論寫作、讀書計畫、心態調整。"
+}
+</script>
 <link rel="stylesheet" href="assets/styles.css">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@400;500;700&display=swap" rel="stylesheet">
 <script src="assets/image-slot.js"></script>
 <style>
+/* ===== 字體與導覽列：與首頁一致（移植 home.css） ===== */
+body{ font-family:"Noto Serif TC", Georgia, "Times New Roman", "PingFang TC", serif; }
+h1,h2,h3,h4{ font-weight:700; }
+.navhome{
+  position:sticky; top:0; z-index:60; background:rgba(247,240,226,.9);
+  backdrop-filter:blur(12px) saturate(1.1); border-bottom:1px solid rgba(154,107,74,.1); height:auto; padding:0;
+}
+.navhome .nav__in{ display:flex; align-items:center; justify-content:space-between; height:80px; }
+.navhome .brand{ display:flex; align-items:center; gap:13px; }
+.navhome .brand__mark{ flex:none; width:46px; height:46px; border-radius:13px; background:#46603E; color:#F7F0E2; display:grid; place-items:center; font-family:"Noto Serif TC",Georgia,serif; font-weight:700; font-size:1.5rem; box-shadow:0 10px 24px -16px rgba(120,74,46,.5); }
+.navhome .brand__logo{ height:67px; width:auto; transform:rotate(-5deg); transform-origin:center; }
+.navhome .brand__logo--text{ display:none; }
+.navhome .links{ display:flex; align-items:center; gap:26px; }
+.navhome .links a{ font-weight:700; font-size:1rem; color:#4A4138; white-space:nowrap; transition:color .2s; }
+.navhome .links a:hover{ color:#D26A3E; }
+.navhome .nav__cta{ background:#CB6440; color:#fff; padding:11px 22px; border-radius:999px; font-size:.95rem; box-shadow:0 10px 24px -16px rgba(120,74,46,.5); transition:transform .25s, background .25s; }
+.navhome .nav__cta:hover{ background:#B5542F; transform:translateY(-2px); }
+.navhome .burger{ display:none; align-items:center; justify-content:center; background:#46603E; color:#F7F0E2; border:0; cursor:pointer; width:46px; height:46px; border-radius:13px; font-family:"Noto Serif TC",Georgia,serif; font-weight:700; font-size:1.5rem; line-height:1; box-shadow:0 10px 24px -16px rgba(120,74,46,.5); padding:0; transition:transform .2s, background .2s; }
+.navhome .burger:hover{ background:#CB6440; transform:scale(1.05); }
+.navhome .burger.on{ background:#CB6440; }
+@media (max-width:860px){
+  .navhome .burger{ display:inline-flex; }
+  .navhome .nav__in{ justify-content:flex-end; gap:9px; }
+  .navhome .brand__mark{ display:none; }
+  .navhome .brand__logo--full{ display:none; }
+  .navhome .brand__logo--text{ display:block; }
+  .navhome .links{
+    position:fixed; inset:80px 0 auto 0; flex-direction:column; align-items:stretch; gap:0;
+    background:#F7F0E2; padding:10px 22px 20px; box-shadow:0 24px 46px -28px rgba(120,74,46,.45);
+    border-bottom:1px solid rgba(154,107,74,.14);
+    transform:translateY(-135%); transition:transform .35s cubic-bezier(.2,.8,.2,1);
+  }
+  .navhome .links.open{ transform:none; }
+  .navhome .links a{ padding:15px 6px; font-size:1.08rem; border-bottom:1px solid rgba(154,107,74,.1); }
+  .navhome .nav__cta{ margin-top:10px; text-align:center; }
+}
+
 /* ===== GUIDE / BLOG INDEX (WordPress template) ===== */
 .ghero{ padding:64px 0 8px; }
 .ghero__in{ max-width:760px; }
@@ -88,15 +141,15 @@
 </head>
 <body>
 
-<header class="nav">
+<header class="nav navhome">
   <div class="wrap nav__in">
-    <a class="brand" href="index.html"><span class="mark">姐</span><span>國考學姐<small>穩定上岸指南</small></span></a>
-    <button class="nav__burger" aria-label="選單" id="burger"><span></span><span></span><span></span></button>
-    <nav class="nav__links" id="navlinks">
+    <a class="brand" href="index.html"><span class="brand__mark">姐</span><img src="assets/logo.webp" alt="國考學姐" class="brand__logo brand__logo--full"><img src="assets/logo-text.png" alt="國考學" class="brand__logo brand__logo--text"></a>
+    <button class="burger" id="burger" aria-label="開啟選單">姐</button>
+    <nav class="links" id="links">
       <a href="index.html">首頁</a>
-      <a href="consultation.html">國考高效上岸諮詢</a>
-      <a href="guide.html" class="is-active">穩定上岸指南</a>
-      <a class="btn btn--coral nav__cta" href="consultation.html#booking">預約諮詢</a>
+      <a href="index.html#coach">高效上榜陪跑計畫</a>
+      <a href="guide.html">穩定上岸系列文章</a>
+      <a class="nav__cta" href="https://calendly.com/czora3344/30min" target="_blank" rel="noopener">預約免費高效上榜診斷諮詢</a>
     </nav>
   </div>
 </header>
@@ -210,8 +263,9 @@
 </footer>
 
 <script>
-const burger=document.getElementById('burger'), links=document.getElementById('navlinks');
-burger&&burger.addEventListener('click',()=>links.classList.toggle('open'));
+const burger=document.getElementById('burger'), links=document.getElementById('links');
+burger&&burger.addEventListener('click',()=>{links.classList.toggle('open'); burger.classList.toggle('on');});
+links&&links.querySelectorAll('a').forEach(function(a){a.addEventListener('click',function(){links.classList.remove('open'); burger.classList.remove('on');});});
 const io=new IntersectionObserver((es)=>{es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target);}})},{threshold:.1});
 document.querySelectorAll('.reveal:not(.in)').forEach(el=>io.observe(el));
 
