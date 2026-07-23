@@ -223,7 +223,7 @@ html[data-palette="green"]{
 .pillar__list{ list-style:none; margin:22px 0 0; padding:0; display:flex; flex-direction:column; gap:13px; }
 .pillar__list li{ position:relative; padding-left:30px; color:var(--ink); font-size:1rem; line-height:1.8; }
 .price2{ display:flex; align-items:baseline; justify-content:center; gap:18px; flex-wrap:wrap; margin:40px auto 0; }
-.price2__old{ color:var(--ink-soft); font-size:1.4rem; text-decoration:line-through; text-decoration-color:var(--coral-text); text-decoration-thickness:2px; }
+.price2__old{ color:#fff; font-size:1.4rem; text-decoration:line-through; text-decoration-color:var(--coral-text); text-decoration-thickness:2px; }
 .price2__new{ color:#D6303F; font-size:2.1rem; font-weight:700; }
 .price2__amt{ color:#D6303F; font-weight:700; margin-left:.35em; }
 .pillar__list li::before{
@@ -445,15 +445,14 @@ html[data-palette="green"]{
 
     <!-- 成績單輪播 -->
     <div class="scores reveal">
-      <p class="scores__cap">歷年成績單<span>多次報考 0 落榜，每一份都是可被複製的方法。點圖可放大檢視</span></p>
+      <p class="scores__cap">歷年成績單<span>多次報考 0 落榜，每一份都是可被複製的方法。</span></p>
       <div class="carousel" id="carousel">
         <button class="carousel__btn prev" id="cPrev" aria-label="上一張">‹</button>
         <div class="carousel__stage" id="cStage"></div>
         <button class="carousel__btn next" id="cNext" aria-label="下一張">›</button>
         <div class="carousel__dots" id="cDots"></div>
       </div>
-      <p class="scores__hint">自動輪播中・滑鼠移入暫停</p>
-    </div>
+      </div>
 
     <!-- 誠懇的證明 -->
     <div class="about2__quote reveal">

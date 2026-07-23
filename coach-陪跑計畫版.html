@@ -3,14 +3,14 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>60 分鐘一對一國考高效上榜診斷諮詢 ｜ 國考學姐 Zora</title>
+<title>6 個月一對一國考高效上岸陪跑計畫 ｜ 國考學姐 Zora</title>
 <link rel="icon" type="image/png" href="assets/favicon.png">
-<meta name="description" content="國考學姐專注國家考試、高普考、公務人員考試一對一高效上榜診斷諮詢。別再把時間和存款，燒在總是差一點點就上榜的國考無底洞。多次短期上榜、任公職 10 年的國考學姐，親自擔任你的備考軍師與進度教練。先預約 30 分鐘免費高效上榜診斷諮詢。">
+<meta name="description" content="別再把時間和存款，燒在總是差一點點就上榜的國考無底洞。多次短期上榜、任公職 10 年的國考學姐，親自擔任你的備考軍師與進度教練。先預約 30 分鐘免費高效上榜診斷諮詢。">
 <link rel="canonical" href="https://www.zoraexam.com/coach.html">
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="國考學姐 Zora">
-<meta property="og:title" content="國家考試、高普考公務人員上榜診斷 ｜ 國考學姐 Zora">
-<meta property="og:description" content="國考學姐專注國家考試、高普考、公務人員考試高效上榜診斷諮詢。先預約 60 分鐘診斷諮詢。">
+<meta property="og:title" content="6 個月一對一國考高效上岸陪跑計畫 ｜ 國考學姐 Zora">
+<meta property="og:description" content="別再把時間和存款，燒在總是差一點點就上榜的國考無底洞。先預約 30 分鐘免費高效上榜診斷諮詢。">
 <meta property="og:url" content="https://www.zoraexam.com/coach.html">
 <meta property="og:image" content="https://www.zoraexam.com/assets/banner.webp">
 <meta name="keywords" content="國考學姐,國考,國家考試,國考陪跑,高普,公務員,國考陪跑計畫,一對一諮詢">
@@ -75,7 +75,7 @@ html[data-palette="green"]{
 /* shared section frame */
 .sec{ padding:var(--secpad,132px) 0; }
 .sec--cream{ background:var(--cream); }
-.sec--salmon{ background:var(--salmon); border-radius:70px 70px 0 0; }
+.sec--salmon{ background:var(--salmon); }
 .shead{ text-align:center; max-width:820px; margin:0 auto 76px; }
 
 /* decorative doodle dividers / flourishes (reuse home illustrations) */
@@ -261,7 +261,7 @@ html[data-palette="green"]{
 .review__by{ margin-top:auto; padding-top:22px; border-top:1px solid var(--line); color:var(--ink-soft); font-weight:500; font-size:.92rem; }
 
 /* ===== 流程 ===== */
-.flow{ display:grid; grid-template-columns:repeat(4,1fr); gap:24px; max-width:1200px; margin:0 auto; align-items:stretch; }
+.flow{ display:grid; grid-template-columns:repeat(5,1fr); gap:18px; max-width:1120px; margin:0 auto; align-items:stretch; }
 .fstep{ position:relative; text-align:center; display:flex; }
 .fstep__n{ width:60px; height:60px; border-radius:18px; background:var(--coral); color:#fff; display:grid; place-items:center; font-family:var(--serif); font-weight:700; font-size:1.4rem; box-shadow:var(--sh-sm); margin:0 auto 18px; }
 .fstepbox{ width:100%; background:rgba(246,234,228,.8); border-radius:20px 20px 20px 0; padding:30px 22px 26px; box-shadow:var(--sh-sm); display:flex; flex-direction:column; align-items:center; }
@@ -332,15 +332,12 @@ html[data-palette="green"]{
   background:var(--btn-grad); color:#fff; font-family:var(--serif); font-weight:700;
   font-size:1.04rem; line-height:1.42; text-align:center; text-decoration:none;
   box-shadow:0 18px 38px -12px rgba(15,70,92,.6), 0 4px 14px rgba(0,0,0,.14);
-  animation:floatIn .6s cubic-bezier(.2,.9,.3,1) both, floatBob 3.6s ease-in-out .6s infinite;
   transition:transform .25s cubic-bezier(.2,.8,.2,1), box-shadow .25s, background .25s;
+  animation:floatIn .6s cubic-bezier(.2,.9,.3,1) both, floatPulse 2.8s ease-in-out 1s infinite, floatBob 3.6s ease-in-out .6s infinite;
 }
-.floatcta:hover{ animation-play-state:paused; transform:scale(1.1); background:var(--btn-grad-h); box-shadow:0 24px 50px -12px rgba(15,70,92,.72); }
+.floatcta:hover{ transform:translateY(-3px) scale(1.05); background:var(--btn-grad-h); box-shadow:0 24px 50px -12px rgba(15,70,92,.72); }
 @keyframes floatIn{ from{ opacity:0; transform:translateY(24px) scale(.85); } to{ opacity:1; transform:none; } }
-@keyframes floatBob{ 0%,100%{ transform:translateY(0); } 50%{ transform:translateY(-10px); } }
-.floatlike{ animation:ctaPulse 1.7s ease-in-out infinite; display:inline-flex; transition:transform .25s cubic-bezier(.2,.8,.2,1); }
-.floatlike:hover{ animation-play-state:paused; transform:scale(1.08); }
-@keyframes ctaPulse{ 0%,100%{ transform:scale(1); } 50%{ transform:scale(1.045); } }
+@keyframes floatBob{ 0%,100%{ transform:translateY(0); } 50%{ transform:translateY(-14px); } }
 @keyframes floatPulse{
   0%,100%{ box-shadow:0 18px 38px -12px rgba(15,70,92,.6), 0 4px 14px rgba(0,0,0,.14); }
   50%{ box-shadow:0 20px 54px -8px rgba(15,70,92,.85), 0 4px 14px rgba(0,0,0,.14); }
@@ -349,8 +346,8 @@ html[data-palette="green"]{
 @media (prefers-reduced-motion:reduce){ .floatcta{ animation:floatIn .4s ease both; } }
 
 /* ===== 診斷表名單磁鐵區塊 ===== */
-.dsheet__grid{ display:grid; grid-template-columns:.85fr 1.15fr; gap:60px; align-items:start; }
-.dsheet__coverwrap{ width:100%; max-width:280px; justify-self:center; position:relative; margin-top:40px; }
+.dsheet__grid{ display:grid; grid-template-columns:.85fr 1.15fr; gap:60px; align-items:center; }
+.dsheet__coverwrap{ width:100%; max-width:280px; justify-self:center; position:relative; }
 .dsheet__coverwrap::before{
   content:""; position:absolute; inset:0; background:rgba(90,90,90,.5); border-radius:0;
   rotate:3deg; z-index:0;
@@ -410,8 +407,9 @@ html[data-palette="green"]{
     <button class="burger" id="burger" aria-label="開啟選單">姐</button>
     <nav class="links" id="links">
       <a href="index.html">首頁</a>
+      <a href="index.html#coach">高效上榜陪跑計畫</a>
       <a href="guide.html">穩定上岸系列文章</a>
-      <a href="coach.html">一對一高效上榜診斷諮詢</a>
+      <a class="nav__cta" href="https://calendly.com/czora3344/30min" target="_blank" rel="noopener">預約免費高效上榜診斷諮詢</a>
     </nav>
   </div>
 </header>
@@ -421,7 +419,7 @@ html[data-palette="green"]{
   <div class="wrap">
     <div class="lphero__stack reveal in">
       <div class="lphero__copy">
-        <h1 class="lphero__quote">用驗證過的上榜底層邏輯，<br>讓你的努力高效轉換成實質的分數。</h1>
+        <h2 class="lphero__quote">用驗證過的上榜底層邏輯，<br>讓你的努力高效轉換成實質的分數。</h2>
         <p class="lphero__sub">你缺的不是努力，而是<b>對的備考方法</b>。<br>非本科系畢業、備考 3-8 個月、多次報考零落榜的國考學姐，<br>精準破除你的備考盲點，為你打造穩定上榜的體質。</p>
       </div>
       <img class="lphero__bg" src="assets/hero-goal.webp" alt="考生振筆疾書，桌邊有書籍、行事曆與獎盃象徵目標達成">
@@ -435,7 +433,7 @@ html[data-palette="green"]{
   <div class="wrap">
     <div class="shead reveal">
       <img class="painhead-girl" src="assets/worried-girl.webp" alt="為國家考試備考焦慮的考生插畫">
-      <h2>在看不見盡頭的備考日子裡，<br>你是不是正被這些狀況反覆折磨：</h2>
+      <h2>在看不見盡頭的備考日子裡，<br>你是不是正被這 6 大高昂的代價反覆折磨：</h2>
     </div>
     <div class="pains">
       <article class="paincard reveal d1">
@@ -468,7 +466,7 @@ html[data-palette="green"]{
 </section>
 
 <!-- 區塊 3 · 診斷表磁鐵 -->
-<section class="sec sec--cream dsheet" data-screen-label="免費診斷表" style="padding-bottom:40px;">
+<section class="sec sec--cream dsheet" data-screen-label="免費診斷表">
   <div class="wrap dsheet__grid">
     <div class="dsheet__coverwrap reveal">
       <img class="dsheet__cover" src="assets/diagnostic-sheet-cover.webp" alt="國考上榜五維能力診斷表" width="480" height="678" loading="lazy" style="aspect-ratio:480/678;height:auto;">
@@ -484,20 +482,20 @@ html[data-palette="green"]{
   </div>
 </section>
 
-<!-- 區塊 4 · 60 分鐘診斷 -->
-<section class="sec sec--cream" data-screen-label="60分鐘診斷" style="padding-top:40px;">
+<!-- 區塊 4 · 30 分鐘診斷 -->
+<section class="sec sec--cream" data-screen-label="30分鐘診斷">
   <div class="wrap">
     <hr class="sec-divider reveal">
     <div class="shead reveal">
-      <h2>60 分鐘，診斷上榜阻礙，優化備考策略</h2>
+      <h2>30 分鐘，找出當下最適合你的備考策略</h2>
     </div>
     <div class="diag">
       <div class="diag__copy reveal">
-        <p>為了幫真正想上岸的考生精準止損，學姐特別釋出限量的<b>一對一線上 60 分鐘高效上榜診斷諮詢</b>。</p>
-        <p>這一場私密的、針對你當下瓶頸的實戰健檢。<b>短短 60 分鐘，我會直接為你點破盲點，帶走切實有用的破局提點。</b></p>
+        <p>為了幫真正想上岸的考生精準止損，學姐特別釋出限量的<b>一對一線上 30 分鐘高效上榜診斷諮詢</b>。</p>
+        <p>這一場私密的、針對你當下瓶頸的實戰健檢。<b>短短 30 分鐘，我會直接為你點破盲點，帶走切實有用的破局提點。</b></p>
       </div>
       <div class="diag__plan reveal d2">
-        <span class="diag__lead"><span class="sp">✦</span>在這 60 分鐘的諮詢中，我們將梳理：</span>
+        <span class="diag__lead"><span class="sp">✦</span>在這 30 分鐘的免費諮詢中，我們將梳理：</span>
         <ol class="checklist">
           <li class="citem"><span class="citem__no">01</span><div class="citem__b"><h4>歷次成績分析</h4><p>從考試表現找出強弱科盲點及上榜策略。</p></div></li>
           <li class="citem"><span class="citem__no">02</span><div class="citem__b"><h4>讀書方法與瓶頸診斷</h4><p>揪出你「讀了就忘、答題卡關」的底層原因。</p></div></li>
@@ -506,7 +504,7 @@ html[data-palette="green"]{
       </div>
     </div>
     <div class="action__cta reveal" style="margin-top:56px;">
-      <a class="btn btn--lg btn-attn floatlike" href="https://calendly.com/czora3344/30min" target="_blank" rel="noopener">立即預約國考高效上榜診斷諮詢</a>
+      <a class="btn btn--lg btn-attn" href="https://calendly.com/czora3344/30min" target="_blank" rel="noopener">立即免費預約：30 分鐘國考高效上榜諮詢</a>
     </div>
   </div>
 </section>
@@ -553,17 +551,69 @@ html[data-palette="green"]{
   </div>
 </section>
 
+<!-- 區塊 5 · 陪跑計畫 -->
+<section class="sec sec--salmon" id="coach" data-screen-label="陪跑計畫">
+  <div class="wrap">
+    <div class="shead reveal" style="position:relative;">
+      <img class="shead__spin" src="assets/star-yellow.webp" alt="" aria-hidden="true" style="left:-34px;top:-46px;">
+      <h2>什麼是「6 個月一對一全方位陪跑計畫」？</h2>
+    </div>
+    <div class="coach2__intro reveal">
+      <p>在 30 分鐘的免費線上高效上榜診斷後，如果你發現自己的備考狀態需要更長期的客製化追蹤與高密度調整，學姐也提供全方位的 <b>【6 個月一對一國考高效上岸陪跑計畫】</b>。</p>
+      <p>這是一場由多次短期速成上榜、實際於公部門任職 10 年的學姐，親自扮演你的<b>備考軍師與進度教練</b>。</p>
+    </div>
+    <p class="coach2__sub reveal d1"><span class="sp">✦</span>陪跑計畫包含：</p>
+    <div class="pillars">
+      <span class="pillars__plus" aria-hidden="true">+</span>
+      <article class="pillar reveal d1">
+        <span class="pillar__no">01</span>
+        <h3>6 次一對一深度戰略對談</h3>
+        <p>視訊深度對談，依你的當下需要擬定備考策略。每一次，都針對你真實的進度與卡關，做出最精準的下一步。</p>
+        <ul class="pillar__list">
+          <li>歷年成績單數據拆解</li>
+          <li>客製化讀書計畫與時間安排</li>
+          <li>大腦記憶術運用</li>
+          <li>申論題結構親自微調批改</li>
+          <li>答題技巧實戰演練</li>
+        </ul>
+        <span class="pillar__arrow">↘</span>
+      </article>
+      <article class="pillar reveal d2">
+        <span class="pillar__no">02</span>
+        <h3>文字陪跑諮詢支援</h3>
+        <p>備考路上不再孤立無援。你可以隨時透過通訊軟體提問，學姐將在 24 小時內親自回覆——做你最穩定的靠山。</p>
+        <ul class="pillar__list">
+          <li>讀書卡關，隨問隨答</li>
+          <li>計畫脫節，即時拉回正軓</li>
+          <li>深夜崩潰，有人接住情緒</li>
+          <li>不是罐頭回覆，是學姐親自回</li>
+        </ul>
+        <span class="pillar__arrow">↘</span>
+      </article>
+    </div>
+    <div class="declare2 reveal">
+      <svg class="declare2__bulb" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+        <path d="M32 6c-10 0-17 7.5-17 16 0 6.5 3.5 10.5 6.5 13.5 1.5 1.5 2.5 3 2.8 5h15.4c.3-2 1.3-3.5 2.8-5C45.5 32.5 49 28.5 49 22c0-8.5-7-16-17-16Z" stroke="#fff" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/>
+        <path d="M25 45h14M26.5 50h11M29 55h6" stroke="#fff" stroke-width="2.4" stroke-linecap="round"/>
+        <path d="M27 24c1.5-3 3.5-4.5 5.5-4.7M23 15l-3-2.5M41 15l3-2.5M32 5V2" stroke="#fff" stroke-width="2.2" stroke-linecap="round"/>
+      </svg>
+      <p>因為學姐的時間與精力極其有限，為了保證每一位陪跑學員的最高上岸率，「一對一國考高效上岸陪跑計畫」<b>每個月名額極其稀缺，且不開放直接購買</b>。</p>
+      <p>我必須透過這 30 分鐘的免費高效上榜診斷諮詢，確認你的決心與狀態，當我們彼此都覺得適合，我才會邀請你加入陪跑計畫。</p>
+    </div>
+  </div>
+</section>
+
 <!-- 陪跑四大模塊 -->
-<section class="sec" data-screen-label="四大模塊" style="background:var(--salmon-soft);border-radius:0 0 0 0;">
+<section class="sec sec--cream" data-screen-label="四大模塊">
   <div class="wrap">
     <div class="shead reveal">
-      <h2 style="color:var(--coral-text);">高效上榜診斷諮詢能協助您：</h2>
+      <h2>陪跑計畫包含的 4 大實戰系統</h2>
     </div>
     <div class="modules">
       <article class="module reveal d1">
         <span class="module__no">01</span>
         <svg class="module__icon" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><circle cx="32" cy="32" r="22" stroke="var(--coral)" stroke-width="2.6"/><circle cx="32" cy="32" r="13" stroke="var(--coral)" stroke-width="2.4"/><circle cx="32" cy="32" r="4" fill="var(--coral)"/></svg>
-        <h3>上榜策略擬定</h3>
+        <h3>上榜策略擬定系統</h3>
         <ul>
           <li><b>歷年成績單及模擬練習數據拆解：</b>精準揪出強弱科盲點與失分死角。</li>
           <li><b>讀書計畫擬定：</b>盤點可讀書時間，專屬個人可穩定執行的讀書計畫。</li>
@@ -573,7 +623,7 @@ html[data-palette="green"]{
       <article class="module reveal d2">
         <span class="module__no">02</span>
         <svg class="module__icon" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M12 12h20v40H12z" stroke="var(--coral)" stroke-width="2.4" stroke-linejoin="round"/><path d="M32 12h20v40H32z" stroke="var(--coral)" stroke-width="2.4" stroke-linejoin="round"/><path d="M18 22h8M18 30h8M38 22h8M38 30h8" stroke="var(--coral)" stroke-width="2" stroke-linecap="round"/></svg>
-        <h3>考科實力倍增</h3>
+        <h3>考科實力倍增系統</h3>
         <ul>
           <li><b>讀書技巧：</b>心理學記憶術、高效學習讀書技巧應用，幫助你讀的進去，記的起來，用的出來。</li>
           <li><b>解題輸出優化：</b>一對一微調並批改你的申論題結構，讓閱卷老師在開頭 5 秒內就決定給你高分。</li>
@@ -582,7 +632,7 @@ html[data-palette="green"]{
       <article class="module reveal d3">
         <span class="module__no">03</span>
         <svg class="module__icon" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M32 8v10M14 16l7 7M50 16l-7 7" stroke="var(--coral)" stroke-width="2.6" stroke-linecap="round"/><circle cx="32" cy="38" r="16" stroke="var(--coral)" stroke-width="2.6"/><path d="M32 30v8l6 4" stroke="var(--coral)" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
-        <h3>考場高能輸出</h3>
+        <h3>考場高能輸出系統</h3>
         <ul>
           <li><b>答題技巧實戰演練：</b>陪跑後半程，我們專注於「考場時間壓力模擬」。教你在面對未知題型時如何「合理解題」，調配每 1 分鐘的寫字權重。</li>
           <li><b>考場情緒穩定壓力管理：</b>模擬練習，習慣與壓力共處下也能穩定答題。</li>
@@ -591,9 +641,10 @@ html[data-palette="green"]{
       <article class="module reveal d4">
         <span class="module__no">04</span>
         <svg class="module__icon" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M32 12c-10 0-17 7.5-17 16 0 6.5 3.5 10.5 6.5 13.5 1.5 1.5 2.5 3 2.8 5h15.4c.3-2 1.3-3.5 2.8-5C45.5 38.5 49 34.5 49 28c0-8.5-7-16-17-16Z" stroke="var(--coral)" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/><path d="M25 51h14M27 55h10" stroke="var(--coral)" stroke-width="2.4" stroke-linecap="round"/></svg>
-        <h3>心理素質培育</h3>
+        <h3>心理素質培育系統</h3>
         <ul>
           <li><b>無效信念改寫：</b>陪伴覺察並改寫阻礙穩定備考、摧毀上榜信心的想法及念頭。</li>
+          <li><b>24小時內回復的文字支援：</b>備考路上你不再是孤軍奮戰。計畫脫節時，幫你即時拉回正軌；深夜懷疑人生、情緒崩潰時，接住你的焦慮，提供理性的破局提點。</li>
         </ul>
       </article>
     </div>
@@ -605,33 +656,33 @@ html[data-palette="green"]{
 <section class="sec sec--cream" data-screen-label="學員評價">
   <div class="wrap">
     <div class="shead reveal">
-      <h2>他們也曾卡在原地，<br>直到預約了高效上榜診斷諮詢</h2>
+      <h2>他們也曾卡在原地，<br>直到走進一對一陪跑計畫</h2>
     </div>
     <div class="reviews" style="position:relative;">
       <img class="testi__avatars" src="assets/feedback-people.webp" alt="學員插畫頭像群">
       <article class="review reveal d1">
-        <p class="review__hl">過去寫申論很苦手，直到學姐幫我拆解答題框架，才明白怎樣的答題方式更能得高分</p>
+        <p class="review__hl">過去我花了大把時間在死背，直到學姐幫我拆解答題框架，才明白怎樣的答題脈絡更能得高分</p>
         <div class="review__body">
-          <p>白天要上班，晚上讀書常常翻開下一頁就忘上一頁，申論題動筆更是腦袋空白。學姐幫我把破解的時間重新配置，並一對一修改我的申論題框架。</p>
-          <p>她教的是一種上榜者的底層邏輯，讓我知道怎樣正確學習及輸出題答，很值得！</p>
+          <p>白天要上班，晚上讀書常常翻開下一頁就忘上一頁，申論題動筆更是腦袋空白。加入學姐的陪跑後，學姐直接用她多次上榜的備考技巧，幫我把破碎的時間重新配置，並一對一修改我的申論題框架。</p>
+          <p>她教的是一種看穿考題權重的底層邏輯，讓我不用像以前一樣盲目苦讀，只花 4 個月就掌握了快速拿高分的關鍵，真的讓我少走了好幾年的彎路！</p>
         </div>
         <div class="review__by">兼職備考學員<br>林小姐</div>
       </article>
       <article class="review reveal d2">
-        <p class="review__hl">考了好幾次總是以『差一點點』落榜， Z 學姐在 1 對 1 對談中，精準揪出我成績單和讀書計畫裡的致命盲點。</p>
+        <p class="review__hl">考了好幾次總是以『差一點點』落榜，陷入嚴重的卡分魔咒。是 Z 學姐在 1 對 1 對談中，精準揪出我成績單和讀書計畫裡的致命盲點。</p>
         <div class="review__body">
-          <p>我自認讀得非常努力，但放榜分數總是卡在尷尬的臨界點，心力交瘁到差點想放棄。</p>
-          <p>學姐幫我體檢歷次成績單，幾次的預約中，指出我備考死角。現在我讀起來更踏實，再也不茫然並懷疑自己。</p>
+          <p>我自認讀得非常努力，課本也滾瓜爛熟，但放榜分數總是卡在尷尬的臨界點，心力交瘁到差點想放棄。</p>
+          <p>學姐沒有灌我心靈雞湯，而是非常理性、冷靜地像軍師一樣，幫我體檢歷次成績單，指出我申論題裡缺乏個人觀點的死角。這種一對一的陪跑微調，補足了我上榜最關鍵的臨門一腳，讓我用最快的速度終結重考地獄，順利登出國考！</p>
         </div>
-        <div class="review__by">兼職備考學員<br>陳先生</div>
+        <div class="review__by">三度重考突破學員<br>陳先生</div>
       </article>
       <article class="review reveal d3">
-        <p class="review__hl">全職準備了快兩年還是沒上，直到參加了 6 次諮詢，才真正抓對讀書節奏。</p>
+        <p class="review__hl">全職準備了快兩年還是沒上，直到加入陪跑計畫，才真正抓對讀書節奏，4 個月就穩定上榜。</p>
         <div class="review__body">
-          <p>之前自己讀書總是抓不到重點，一天讀 10 小時卻沒有進度感。學姐先幫我砍掉一半沒效率的讀書方式，把時間集中在真正會拿分的地方。</p>
-          <p>現在回頭看，漸漸感覺差別真的在方法，不是努力不夠。</p>
+          <p>之前自己讀書總是東摸西摸，重點抓不到，一天讀 10 小時卻沒有進度感。加入陪跑後，學姐先幫我砍掉一半沒效率的讀書方式，把時間集中在真正會拿分的地方。</p>
+          <p>每次卡關的時候，文字諮詢當天就有回覆，不會讓我一個人卡在原地亂想。最後這次終於穩穩地考過了，回頭看才發現差別真的在方法，不是努力不夠。</p>
         </div>
-        <div class="review__by">全職備考學員<br>王小姐</div>
+        <div class="review__by">全職備考轉職學員<br>王小姐</div>
       </article>
     </div>
   </div>
@@ -641,34 +692,33 @@ html[data-palette="green"]{
 <section class="sec sec--salmon" data-screen-label="諮詢流程">
   <div class="wrap">
     <div class="shead reveal">
-      <h2>一對一國考高效上榜診斷諮詢進行流程</h2>
+      <span class="eyebrow">Process ・ 進行流程</span>
+      <h2>免費一對一國考高效上榜診斷諮詢進行流程</h2>
     </div>
     <div class="flow">
-      <div class="fstep reveal d1"><div class="fstepbox"><div class="fstep__n">1</div><h4>轉帳支付諮詢費用</h4>
+      <div class="fstep reveal d1"><div class="fstepbox"><div class="fstep__n">1</div><h4>線上預約諮詢時間</h4>
         <img class="fstep__icon" src="assets/flow-book.webp" alt="" aria-hidden="true">
       </div></div>
-      <div class="fstep reveal d1"><div class="fstepbox"><div class="fstep__n">2</div><h4>線上預約諮詢並填表單</h4>
+      <div class="fstep reveal d1"><div class="fstepbox"><div class="fstep__n">2</div><h4>填寫狀態表單並提交參考資料</h4><p>成績單、讀書計畫、申論答題卷等，提供越多診斷越明確</p>
         <img class="fstep__icon" src="assets/flow-write.webp" alt="" aria-hidden="true">
       </div></div>
-      <div class="fstep reveal d2"><div class="fstepbox"><div class="fstep__n">3</div><h4>提交參考資料</h4><p>成績單、讀書計畫、申論答題卷等，提供越多診斷越明確</p>
-        <svg class="fstep__icon" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-          <rect x="10" y="14" width="30" height="38" rx="3" fill="#fff" stroke="var(--green)" stroke-width="2.4"/>
-          <rect x="16" y="22" width="18" height="2.4" fill="var(--coral)"/>
-          <rect x="16" y="29" width="18" height="2.4" fill="var(--coral)"/>
-          <rect x="16" y="36" width="12" height="2.4" fill="var(--coral)"/>
-          <rect x="20" y="20" width="30" height="38" rx="3" fill="var(--coral)" stroke="var(--green)" stroke-width="2.4" transform="translate(6,-4)"/>
-        </svg>
-      </div></div>
-      <div class="fstep reveal d2"><div class="fstepbox"><div class="fstep__n">4</div><h4>進行 60 分鐘線上一對一諮詢</h4>
+      <div class="fstep reveal d2"><div class="fstepbox"><div class="fstep__n">3</div><h4>進行 30 分鐘線上一對一諮詢</h4>
         <svg class="fstep__icon" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
           <rect x="8" y="18" width="32" height="28" rx="6" stroke="var(--green)" stroke-width="2.6"/>
           <path d="M40 27l16-8v26l-16-8Z" fill="var(--coral)"/>
           <circle cx="24" cy="32" r="6" stroke="var(--green)" stroke-width="2.2"/>
         </svg>
       </div></div>
-    </div>
-  </div>
-</section>
+      <div class="fstep reveal d2"><div class="fstepbox"><div class="fstep__n">4</div><h4>獲得當下備考狀態診斷與初步改善策略</h4>
+        <svg class="fstep__icon" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+          <circle cx="27" cy="27" r="16" stroke="var(--green)" stroke-width="2.6"/>
+          <path d="M38 38l14 14" stroke="var(--green)" stroke-width="3" stroke-linecap="round"/>
+          <path d="M20 30l5-8 4 5 6-10" stroke="var(--coral)" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+      </div></div>
+      <div class="fstep reveal d3"><div class="fstepbox"><div class="fstep__n">5</div><h4>評估是否適合加入長期陪跑計畫</h4>
+        <img class="fstep__icon" src="assets/flow-light.webp" alt="" aria-hidden="true">
+      </div></div>
     </div>
   </div>
 </section>
@@ -677,29 +727,30 @@ html[data-palette="green"]{
 <section class="sec sec--cream" data-screen-label="Q&A">
   <div class="wrap">
     <div class="shead reveal">
-      <img class="qa__icon" src="assets/faq-icon.webp" alt="" aria-hidden="true" style="width:104px;">
-      <h2>常見問題</h2>
+      <img class="qa__icon" src="assets/faq-icon.webp" alt="" aria-hidden="true">
+      <span class="eyebrow">Q &amp; A ・ 常見問題</span>
+      <h2>諮詢與陪跑，常見的疑問</h2>
     </div>
     <div class="qa reveal">
       <details class="qitem">
-        <summary><span class="q">Q</span><span>這 60 分鐘的國考高效上榜診斷諮詢，真的能讓我立刻考上嗎？</span><span class="tw">＋</span></summary>
-        <div class="qitem__a">60 分鐘無法保證讓你一定能考上，但這場諮詢的價值在於「精準對焦」──幫你找出當下讀書計畫、記憶盲點或申論答題結構上的致命死角，給予能立即落地調整的止損建議。</div>
+        <summary><span class="q">Q</span><span>這 30 分鐘的國考高效上榜診斷諮詢，真的能讓我立刻考上嗎？</span><span class="tw">＋</span></summary>
+        <div class="qitem__a">短短 30 分鐘無法讓你脫胎換骨。但這場諮詢的價值在於「精準對焦」──幫你找出當下讀書計畫、記憶盲點或申論答題結構上的致命死角，給予能立即落地調整的止損建議。</div>
       </details>
       <details class="qitem">
         <summary><span class="q">Q</span><span>我需要準備什麼來參加諮詢？</span><span class="tw">＋</span></summary>
-        <div class="qitem__a">為了讓這 60 分鐘的效益最大化，預約時請確實填寫備考狀態表單，並於預約後將歷次考試的成績單、讀書計畫、親自寫過的申論題答卷等資料提交給我。我們不聊廢話，直接進入核心診斷。</div>
+        <div class="qitem__a">為了讓這 30 分鐘的效益最大化，預約成功後請確實填寫備考狀態表單，並將歷次考試的成績單、讀書計畫、親自寫過的申論題答卷等資料提交給我。我們不聊廢話，直接進入核心診斷。</div>
       </details>
       <details class="qitem">
         <summary><span class="q">Q</span><span>學姐參加的都是高普考，我考的是其他國家考試，適合參加諮詢或陪跑嗎？</span><span class="tw">＋</span></summary>
-        <div class="qitem__a">可以哦。國家考試的準備及上場都是相同的底層邏輯，學姐提供的也是考試及學習知識的底層邏輯，參加其他的考試也適用。建議先來信或至 Threads 私訊詢問是否適合預約。</div>
+        <div class="qitem__a">可以哦。國家考試的準備及上場都是相同的底層邏輯，學姐提供的也是考試及學習知識的底層邏輯，參加其他的考試也適用。建議先約 30 分鐘免費諮詢與學姐討論看看。</div>
       </details>
       <details class="qitem">
-        <summary><span class="q">Q</span><span>請問諮詢有包含各考科的專業學科討論嗎？</span><span class="tw">＋</span></summary>
-        <div class="qitem__a">諮詢專注於「備考策略、讀書與記憶方法、成績單數據拆解、以及申論題答題框架調整」。我僅補足補習班無法照顧到你的個人盲點。</div>
+        <summary><span class="q">Q</span><span>請問諮詢或後續的陪跑計畫，有包含各考科的專業學科講授嗎？</span><span class="tw">＋</span></summary>
+        <div class="qitem__a">沒有。不論是策略會還是陪跑，都專注於「備考策略、讀書與記憶方法、成績單數據拆解、以及申論題答題框架調整」。我僅補足補習班無法照顧到你的個人盲點。</div>
       </details>
       <details class="qitem">
         <summary><span class="q">Q</span><span>可以約實體面對面諮詢嗎？</span><span class="tw">＋</span></summary>
-        <div class="qitem__a">目前不提供實體面對面，一律採 Google Meet 線上視訊模式進行（可不開鏡頭純語音），不受地區限制。</div>
+        <div class="qitem__a">目前不提供實體面對面，一律採 Google Meet 線上視訊模式進行，不受地區限制。</div>
       </details>
     </div>
   </div>
@@ -712,30 +763,44 @@ html[data-palette="green"]{
       <h2>釐清盲點，及時止損</h2>
     </div>
     <p class="action__pitch reveal">這不是一筆額外的補習開銷，而是一次精準的「及時止損」。</p>
+    <div class="compare">
+      <div class="ccol ccol--yes reveal d1">
+        <h3>✦ 如果加入 6 個月高效上岸陪跑計畫</h3>
+        <p>諮詢完能夠立即得到有幫助的備考策略提點，加入陪跑計畫還能幫你省下無效摸索的時間，快速建立適合自己穩定執行的高效備考方法。只要順利上榜，公務員一個月的薪水就能完全賺回你的備考投資。更重要的是，能讓你更早開始領取公職薪資數十萬至百萬。</p>
+      </div>
+      <div class="ccol ccol--no reveal d2">
+        <h3>✕ 如果決定自己摸索苦讀</h3>
+        <p>繼續用舊的方法盲目苦讀。一旦再次落榜，意味著你要多燒一整年的補習費、教材費、生活費，以及少領 1 年以上的公職薪資。</p>
+      </div>
+    </div>
     <div class="think reveal">
       <svg class="think__cloud" viewBox="0 0 600 340" preserveAspectRatio="none" aria-hidden="true">
         <path d="M60,170 C20,150 20,90 70,80 C60,30 130,10 170,40 C190,5 260,0 290,35 C330,0 400,10 410,55 C460,40 520,70 500,120 C560,130 560,200 500,210 C520,260 460,290 410,265 C390,300 320,300 300,270 C260,305 190,295 180,260 C120,280 60,250 70,205 C30,210 20,185 60,170 Z" fill="#fff" stroke="none"/>
       </svg>
       <span class="think__spark think__spark--a">✦</span>
       <span class="think__spark think__spark--b">✦</span>
-      <p class="think__q">請想想：<span>如果你自己摸索，你要花多少時間才會找到上榜的關鍵？</span><span>你需要花多少時間來找到適合自己的有效的備考方法？</span><span>你目前遇到的困難，你知道要怎樣靠自己突破呢？</span></p>
+      <p class="think__q">請想想：<span>如果你自己摸索，你要花多少時間才會達成上榜的目標？</span><span>你需要花多少時間來找到適合自己的有效的備考方法？</span><span>你目前遇到的困難，你知道要怎樣靠自己突破呢？</span></p>
+      <p class="think__p">與其把時間與金錢花在看不見盡頭的摸索上，不如現在花 30 分鐘，為自己換一條少走彎路的精準航道。無論是否加入陪跑，這 30 分鐘你都會有收穫。</p>
     </div>
-    <p class="think__p" style="max-width:760px;margin:32px auto 0;text-align:center;">與其在看不見盡頭的摸索上，不如現在花 60 分鐘，為自己換一條少走彎路的精準航道。而且，一場諮詢的費用未來上榜高普考之類的考試，你一天的薪水就付得出來。</p>
+    <div class="alarm reveal">
+      <b>🚨 【注意：為保證諮詢品質，每週開放時段極其有限】</b>
+      <p>與其等到放榜那天看著分數遺憾、再次消耗 1～2 年的時間與存款，不如現在就跨出第一步。</p>
+    </div>
       </div>
 </section>
 
 <!-- 右下角浮動 CTA -->
-<a class="floatcta" href="https://calendly.com/czora3344/30min" target="_blank" rel="noopener" aria-label="立即預約高效上榜診斷諮詢">立即預約<br>高效上榜診<br>斷諮詢</a>
+<a class="floatcta" href="https://calendly.com/czora3344/30min" target="_blank" rel="noopener" aria-label="立即預約 30 分鐘免費診斷">立即預約<br>30分鐘<br>免費診斷</a>
 
 <!-- 成績單 lightbox -->
 <div class="lightbox" id="lightbox"><button class="lightbox__x" id="lbx" aria-label="關閉">✕</button><img id="lbImg" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" alt="成績單放大"></div>
 
 <!-- FOOTER -->
-<div class="wrap" style="padding-top:24px;padding-bottom:80px;">
+<div class="wrap" style="padding-top:70px;padding-bottom:80px;">
   <img class="flourish flourish--talk reveal" src="assets/talk.webp" alt="國考學姐與學員一對一對談插畫">
   <p class="flourish--cap reveal">下一場一對一深度對談，<br>等的就是現在的你。</p>
   <div class="action__cta reveal" style="margin-top:40px;">
-    <a class="btn btn--lg btn-attn floatlike" href="https://systeme.io/" target="_blank" rel="noopener">立即預約國考高效上榜診斷諮詢</a>
+    <a class="btn btn--lg btn-attn" href="https://systeme.io/" target="_blank" rel="noopener">立即免費預約 30 分鐘國考高效上榜診斷諮詢</a>
   </div>
 </div>
 <footer class="footer">
@@ -752,12 +817,13 @@ html[data-palette="green"]{
       </div>
       <div class="footer__links">
         <a href="index.html">首頁</a>
+        <a href="guide.html">穩定上岸指南</a>
         <a href="terms.html">服務條款</a>
         <a href="privacy.html">隱私權政策</a>
         <a href="refund-policy.html">退換政策</a>
       </div>
     </div>
-    <div class="footer__base">© 2026 國考學姐 Zora ．All rights reserved.</div>
+    <div class="footer__base">© 2026 國考學姐 Zora ・ 穩定上岸指南．All rights reserved.</div>
   </div>
 </footer>
 
