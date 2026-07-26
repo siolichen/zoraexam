@@ -122,6 +122,7 @@ html[data-palette="green"]{
 .lphero__sub b{ color:var(--coral-text); font-weight:700; }
 @media (max-width:760px){
   .lphero__bg{ max-width:100%; }
+  .lphero__quote{ font-size:clamp(2rem,7.5vw,2.6rem); }
 }
 
 /* ===== 痛點 6 卡 ===== */
@@ -140,8 +141,8 @@ html[data-palette="green"]{
 @media(max-width:640px){
   .pains{ display:block; margin-top:80px !important; }
   .paincard{ margin-bottom:26px; }
-  .paincard.reveal{ transform:translateX(70px); opacity:0; transition:opacity .55s ease, transform .65s cubic-bezier(.22,1,.36,1); }
-  .paincard.reveal.in{ transform:translateX(0); opacity:1; }
+  .paincard.reveal{ transform:translateY(60px); opacity:0; transition:opacity .55s ease, transform .65s cubic-bezier(.22,1,.36,1); }
+  .paincard.reveal.in{ transform:translateY(0); opacity:1; }
 }
 /* ===== 陀跑計畫四大模塊 ===== */
 .modules{ display:grid; grid-template-columns:1fr 1fr; gap:32px; max-width:1040px; margin:60px auto 0; perspective:1500px; }
@@ -273,6 +274,11 @@ html[data-palette="green"]{
 .testi__avatars{ display:block; margin:0 auto; max-width:180px; position:absolute; left:50%; top:-42px; transform:translateX(-50%); z-index:2; }
 .reviews{ padding-top:56px; }
 .reviews .review:nth-child(2){ padding-top:60px; }
+.review--img{ background:#111; padding:0; overflow:hidden; box-shadow:0 18px 40px -22px rgba(35,94,115,.28); }
+.review--img img{ display:block; width:100%; height:auto; }
+.review--placeholder{ align-items:center; justify-content:center; min-height:280px; background:#fff !important; border:4px dashed #C0392B; }
+.review__waiting{ color:#C0392B; font-weight:700; font-size:clamp(1.9rem,3.4vw,2.4rem); text-align:center; line-height:1.5; }
+@media (max-width:880px){ .reviews{ grid-template-columns:1fr 1fr; } }
 .qa__icon{ display:block; margin:0 auto 14px; width:64px; }
 @media(max-width:900px){ .shead__spin{ top:-30px; } }
 .fstep:not(:last-child)::after{ content:none; }
@@ -341,6 +347,9 @@ html[data-palette="green"]{
 .floatlike{ animation:ctaPulse 1.7s ease-in-out infinite; display:inline-flex; transition:transform .25s cubic-bezier(.2,.8,.2,1); }
 .floatlike:hover{ animation-play-state:paused; transform:scale(1.08); }
 @keyframes ctaPulse{ 0%,100%{ transform:scale(1); } 50%{ transform:scale(1.045); } }
+.floatbtn{ animation:ctaPulse 1.7s ease-in-out infinite, slowFloat 3.2s ease-in-out infinite; }
+.floatbtn:hover{ animation-play-state:paused, paused; }
+@keyframes slowFloat{ 0%,100%{ transform:translateY(0); } 50%{ transform:translateY(-12px); } }
 @keyframes floatPulse{
   0%,100%{ box-shadow:0 18px 38px -12px rgba(15,70,92,.6), 0 4px 14px rgba(0,0,0,.14); }
   50%{ box-shadow:0 20px 54px -8px rgba(15,70,92,.85), 0 4px 14px rgba(0,0,0,.14); }
@@ -410,8 +419,10 @@ html[data-palette="green"]{
     <button class="burger" id="burger" aria-label="開啟選單">姐</button>
     <nav class="links" id="links">
       <a href="index.html">首頁</a>
-      <a href="guide.html">穩定上岸系列文章</a>
-      <a href="coach.html">一對一高效上榜診斷諮詢</a>
+      <a href="about.html">國考學姐的故事</a>
+      <a href="guide.html">國考穩定上岸系列文章</a>
+      <a href="index.html#resources">所有資源</a>
+      <a href="contact.html">聯絡國考學姐</a>
     </nav>
   </div>
 </header>
@@ -474,7 +485,7 @@ html[data-palette="green"]{
       <img class="dsheet__cover" src="assets/diagnostic-sheet-cover.webp" alt="國考上榜五維能力診斷表" width="480" height="678" loading="lazy" style="aspect-ratio:480/678;height:auto;">
     </div>
     <div class="dsheet__copy reveal d1">
-      <span class="dsheet__eyebrow">免費資源</span>
+      <span class="dsheet__eyebrow">所有資源</span>
       <h2 class="dsheet__title">立刻領取：國考上榜五維能力診斷表</h2>
       <p class="dsheet__lead">用 15 分鐘，快速自我診斷你與上榜之間的距離。</p>
       <div class="dsheet__form">
@@ -489,7 +500,7 @@ html[data-palette="green"]{
   <div class="wrap">
     <hr class="sec-divider reveal">
     <div class="shead reveal">
-      <h2>60 分鐘，診斷上榜阻礙，優化備考策略</h2>
+      <h2>60分鐘國考上榜診斷諮詢</h2>
     </div>
     <div class="diag">
       <div class="diag__copy reveal">
@@ -506,7 +517,7 @@ html[data-palette="green"]{
       </div>
     </div>
     <div class="action__cta reveal" style="margin-top:56px;">
-      <a class="btn btn--lg btn-attn floatlike" href="https://calendly.com/czora3344/30min" target="_blank" rel="noopener">立即預約國考高效上榜診斷諮詢</a>
+      <a class="btn btn--lg btn-attn floatlike floatbtn" href="https://calendly.com/czora3344/30min" target="_blank" rel="noopener">立即預約國考高效上榜診斷諮詢</a>
     </div>
   </div>
 </section>
@@ -563,20 +574,20 @@ html[data-palette="green"]{
       <article class="module reveal d1">
         <span class="module__no">01</span>
         <svg class="module__icon" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><circle cx="32" cy="32" r="22" stroke="var(--coral)" stroke-width="2.6"/><circle cx="32" cy="32" r="13" stroke="var(--coral)" stroke-width="2.4"/><circle cx="32" cy="32" r="4" fill="var(--coral)"/></svg>
-        <h3>上榜策略擬定</h3>
+        <h3>上榜策略優化</h3>
         <ul>
-          <li><b>歷年成績單及模擬練習數據拆解：</b>精準揪出強弱科盲點與失分死角。</li>
-          <li><b>讀書計畫擬定：</b>盤點可讀書時間，專屬個人可穩定執行的讀書計畫。</li>
+          <li><b>歷年成績單及模擬練習數據拆解：</b>揪出強弱科盲點與失分死角。</li>
+          <li><b>讀書計畫調整：</b>陪你設定專屬個人可穩定執行的讀書計畫。</li>
           <li><b>個人備考精力管理：</b>不只是時間管理，而是體能、情緒、思維、精神 4 層面的精力管理。</li>
         </ul>
       </article>
       <article class="module reveal d2">
         <span class="module__no">02</span>
         <svg class="module__icon" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M12 12h20v40H12z" stroke="var(--coral)" stroke-width="2.4" stroke-linejoin="round"/><path d="M32 12h20v40H32z" stroke="var(--coral)" stroke-width="2.4" stroke-linejoin="round"/><path d="M18 22h8M18 30h8M38 22h8M38 30h8" stroke="var(--coral)" stroke-width="2" stroke-linecap="round"/></svg>
-        <h3>考科實力倍增</h3>
+        <h3>考科實力穩定累積</h3>
         <ul>
-          <li><b>讀書技巧：</b>心理學記憶術、高效學習讀書技巧應用，幫助你讀的進去，記的起來，用的出來。</li>
-          <li><b>解題輸出優化：</b>一對一微調並批改你的申論題結構，讓閱卷老師在開頭 5 秒內就決定給你高分。</li>
+          <li><b>讀書技巧應用：</b>找出適合你的心理學記憶術、高效學習讀書技巧應用，幫助你讀的進去，記的起來，用的出來。</li>
+          <li><b>解題輸出優化：</b>一對一微調並批改你的申論題結構，讓閱卷老師在開頭 10秒內就決定給你高分。</li>
         </ul>
       </article>
       <article class="module reveal d3">
@@ -584,8 +595,8 @@ html[data-palette="green"]{
         <svg class="module__icon" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M32 8v10M14 16l7 7M50 16l-7 7" stroke="var(--coral)" stroke-width="2.6" stroke-linecap="round"/><circle cx="32" cy="38" r="16" stroke="var(--coral)" stroke-width="2.6"/><path d="M32 30v8l6 4" stroke="var(--coral)" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
         <h3>考場高能輸出</h3>
         <ul>
-          <li><b>答題技巧實戰演練：</b>陪跑後半程，我們專注於「考場時間壓力模擬」。教你在面對未知題型時如何「合理解題」，調配每 1 分鐘的寫字權重。</li>
-          <li><b>考場情緒穩定壓力管理：</b>模擬練習，習慣與壓力共處下也能穩定答題。</li>
+          <li><b>臨場答題流程優化：</b>在有限的時間內穩穩輸出內容，從容答題。知道怎樣應對考場各種突發狀況。</li>
+          <li><b>考場情緒穩定壓力管理：</b>如何穩定身心，與考場上高壓共處。</li>
         </ul>
       </article>
       <article class="module reveal d4">
@@ -605,34 +616,21 @@ html[data-palette="green"]{
 <section class="sec sec--cream" data-screen-label="學員評價">
   <div class="wrap">
     <div class="shead reveal">
-      <h2>他們也曾卡在原地，<br>直到預約了高效上榜診斷諮詢</h2>
+      <h2>看看諮詢學員及一部分讀者給我的回饋</h2>
     </div>
-    <div class="reviews" style="position:relative;">
-      <img class="testi__avatars" src="assets/feedback-people.webp" alt="學員插畫頭像群">
-      <article class="review reveal d1">
-        <p class="review__hl">過去寫申論很苦手，直到學姐幫我拆解答題框架，才明白怎樣的答題方式更能得高分</p>
-        <div class="review__body">
-          <p>白天要上班，晚上讀書常常翻開下一頁就忘上一頁，申論題動筆更是腦袋空白。學姐幫我把破解的時間重新配置，並一對一修改我的申論題框架。</p>
-          <p>她教的是一種上榜者的底層邏輯，讓我知道怎樣正確學習及輸出題答，很值得！</p>
-        </div>
-        <div class="review__by">兼職備考學員<br>林小姐</div>
-      </article>
-      <article class="review reveal d2">
-        <p class="review__hl">考了好幾次總是以『差一點點』落榜， Z 學姐在 1 對 1 對談中，精準揪出我成績單和讀書計畫裡的致命盲點。</p>
-        <div class="review__body">
-          <p>我自認讀得非常努力，但放榜分數總是卡在尷尬的臨界點，心力交瘁到差點想放棄。</p>
-          <p>學姐幫我體檢歷次成績單，幾次的預約中，指出我備考死角。現在我讀起來更踏實，再也不茫然並懷疑自己。</p>
-        </div>
-        <div class="review__by">兼職備考學員<br>陳先生</div>
-      </article>
-      <article class="review reveal d3">
-        <p class="review__hl">全職準備了快兩年還是沒上，直到參加了 6 次諮詢，才真正抓對讀書節奏。</p>
-        <div class="review__body">
-          <p>之前自己讀書總是抓不到重點，一天讀 10 小時卻沒有進度感。學姐先幫我砍掉一半沒效率的讀書方式，把時間集中在真正會拿分的地方。</p>
-          <p>現在回頭看，漸漸感覺差別真的在方法，不是努力不夠。</p>
-        </div>
-        <div class="review__by">全職備考學員<br>王小姐</div>
-      </article>
+    <div class="feedback__carousel" style="margin-top:56px;position:relative;">
+      <img class="testi__avatars" src="assets/feedback-people.webp" alt="學員插畫頭像群" style="position:relative;top:auto;left:auto;transform:none;margin-bottom:24px;">
+      <button class="feedback__arrow feedback__arrow--l" aria-label="上一則" onclick="window.__reviewStep(-1)">‹</button>
+      <div class="feedback__track" id="reviewTrack">
+        <div class="feedback__card"><img src="assets/feedback-01.jpg" alt="學員與國考學姐的對話截圖 1"></div>
+        <div class="feedback__card"><img src="assets/feedback-02.jpg" alt="學員與國考學姐的對話截圖 2"></div>
+        <div class="feedback__card"><img src="assets/feedback-03.jpg" alt="學員回饋截圖 3"></div>
+        <div class="feedback__card"><img src="assets/feedback-05.jpg" alt="學員回饋截圖 5"></div>
+        <div class="feedback__card review--placeholder"><p class="review__waiting">這裡等待你的回饋</p></div>
+        <div class="feedback__card"><img src="assets/feedback-01.jpg" alt="" aria-hidden="true"></div>
+        <div class="feedback__card"><img src="assets/feedback-02.jpg" alt="" aria-hidden="true"></div>
+      </div>
+      <button class="feedback__arrow feedback__arrow--r" aria-label="下一則" onclick="window.__reviewStep(1)">›</button>
     </div>
   </div>
 </section>
@@ -720,7 +718,7 @@ html[data-palette="green"]{
       <span class="think__spark think__spark--b">✦</span>
       <p class="think__q">請想想：<span>如果你自己摸索，你要花多少時間才會找到上榜的關鍵？</span><span>你需要花多少時間來找到適合自己的有效的備考方法？</span><span>你目前遇到的困難，你知道要怎樣靠自己突破呢？</span></p>
     </div>
-    <p class="think__p" style="max-width:760px;margin:32px auto 0;text-align:center;">與其在看不見盡頭的摸索上，不如現在花 60 分鐘，為自己換一條少走彎路的精準航道。而且，一場諮詢的費用未來上榜高普考之類的考試，你一天的薪水就付得出來。</p>
+    <p class="think__p" style="max-width:760px;margin:32px auto 0;text-align:center;">與其在看不見盡頭的摸索上，<br>不如現在花 60 分鐘，<br>為自己換一條少走彎路的精準航道。<br>而且，<br>一場諮詢的費用，<br>未來上榜高普考之類的考試，<br>你一天的薪水就付得出來。</p>
       </div>
 </section>
 
@@ -735,7 +733,7 @@ html[data-palette="green"]{
   <img class="flourish flourish--talk reveal" src="assets/talk.webp" alt="國考學姐與學員一對一對談插畫">
   <p class="flourish--cap reveal">下一場一對一深度對談，<br>等的就是現在的你。</p>
   <div class="action__cta reveal" style="margin-top:40px;">
-    <a class="btn btn--lg btn-attn floatlike" href="https://systeme.io/" target="_blank" rel="noopener">立即預約國考高效上榜診斷諮詢</a>
+    <a class="btn btn--lg btn-attn floatlike floatbtn" href="https://systeme.io/" target="_blank" rel="noopener">立即預約國考高效上榜診斷諮詢</a>
   </div>
 </div>
 <footer class="footer">
@@ -743,7 +741,7 @@ html[data-palette="green"]{
     <div class="footer__in">
       <img src="assets/logo.webp" alt="國考學姐" class="footer__logo">
       <div class="footer__soc">
-        <a href="#" class="footer__ico" aria-label="LINE 官方帳號">
+        <a href="https://line.me/R/ti/p/@870tgxoy" target="_blank" rel="noopener" class="footer__ico" aria-label="LINE 官方帳號">
           <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2C6.48 2 2 5.69 2 10.25c0 4.09 3.6 7.51 8.47 8.16.33.07.78.22.89.5.1.26.07.66.03.92l-.14.86c-.04.26-.2 1.02.89.56 1.09-.46 5.86-3.45 7.99-5.91 1.47-1.61 2.17-3.25 2.17-5.05C22 5.69 17.52 2 12 2zM8.18 12.4H6.6a.42.42 0 0 1-.42-.42V8.83a.42.42 0 0 1 .84 0v2.73h1.16a.42.42 0 0 1 0 .84zm1.67-.42a.42.42 0 0 1-.84 0V8.83a.42.42 0 0 1 .84 0v3.15zm3.93 0a.42.42 0 0 1-.29.4.43.43 0 0 1-.13.02.42.42 0 0 1-.34-.17l-1.61-2.19v1.94a.42.42 0 0 1-.84 0V8.83a.42.42 0 0 1 .29-.4.42.42 0 0 1 .47.15l1.61 2.19V8.83a.42.42 0 0 1 .84 0v3.15zm2.71-2H17a.42.42 0 0 1 0 .84h-1.16v.74H17a.42.42 0 0 1 0 .84h-1.58a.42.42 0 0 1-.42-.42V8.83a.42.42 0 0 1 .42-.42H17a.42.42 0 0 1 0 .84h-1.16v.73z"/></svg>
         </a>
         <a href="https://www.threads.com/" target="_blank" rel="noopener" class="footer__ico" aria-label="Threads">
@@ -752,12 +750,13 @@ html[data-palette="green"]{
       </div>
       <div class="footer__links">
         <a href="index.html">首頁</a>
+        <a href="https://zora-7.kit.com/profile?_gl=1*zb73t7*_gcl_aw*R0NMLjE3ODQwMzY2NjQuQ2p3S0NBand2TmZTQmhCaUVpd0F5YUdNQ2J4dkpoNUtqRm11SXFZOWlBRXY5Rm45UnktOGdZdGRLakhrLXdnZlBscy15am9rZTNSSEJSb0NQWUlRQXZEX0J3RQ" target="_blank" rel="noopener">訂閱電子報</a>
         <a href="terms.html">服務條款</a>
         <a href="privacy.html">隱私權政策</a>
-        <a href="refund-policy.html">退換政策</a>
+        <a href="refund-policy.html">退費政策</a>
       </div>
     </div>
-    <div class="footer__base">© 2026 國考學姐 Zora ．All rights reserved.</div>
+    <div class="footer__base">© 2026 國考學姐 Zora．All rights reserved.</div>
   </div>
 </footer>
 
@@ -779,16 +778,48 @@ document.querySelectorAll('.reveal:not(.in)').forEach(function(el){io.observe(el
 var bio=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('attn-go');bio.unobserve(e.target);}})},{threshold:.6});
 document.querySelectorAll('.btn-attn').forEach(function(el){bio.observe(el);});
 
+(function(){
+  var track=document.getElementById('reviewTrack');
+  if(!track) return;
+  var realCount=5, idx=0;
+  function goTo(n){
+    idx=n;
+    var card=track.children[0];
+    var w=card.getBoundingClientRect().width, gap=24;
+    track.style.transition='transform .6s cubic-bezier(.2,.8,.2,1)';
+    track.style.transform='translateX(-'+(idx*(w+gap))+'px)';
+    if(idx>=realCount){
+      setTimeout(function(){
+        track.style.transition='none';
+        idx=0;
+        track.style.transform='translateX(0px)';
+      },620);
+    }
+  }
+  function step(){ goTo(idx+1); }
+  window.__reviewStep=function(dir){
+    var next=idx+dir;
+    if(next<0) next=realCount-1;
+    goTo(next);
+  };
+  if(!(window.matchMedia && window.matchMedia('(prefers-reduced-motion:reduce)').matches) && window.innerWidth>600){
+    var started=false;
+    var vio=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting && !started){started=true;setInterval(step,6000);vio.disconnect();}})},{threshold:.3});
+    vio.observe(track);
+  }
+})();
+
+
 /* ===== 成績單輪播 ===== */
 (function(){
   var scores=[
-    {src:'assets/score-105gao.jpg', t:'105 年高考三級・教育行政'},
-    {src:'assets/score-105pu.jpg',  t:'105 年普考・教育行政'},
-    {src:'assets/score-106gao.jpg', t:'106 年高考三級・教育行政'},
-    {src:'assets/score-106pu.jpg',  t:'106 年普考・教育行政'},
-    {src:'assets/score-109di.jpg',  t:'109 年地方特考三等・人事行政'},
-    {src:'assets/score-110chu.jpg', t:'110 年初等考・一般行政'},
-    {src:'assets/score-110gao.jpg', t:'110 年高考三級・人事行政'}
+    {src:'assets/score-105gao.webp', t:'105 年高考三級・教育行政'},
+    {src:'assets/score-105pu.webp',  t:'105 年普考・教育行政'},
+    {src:'assets/score-106gao.webp', t:'106 年高考三級・教育行政'},
+    {src:'assets/score-106pu.webp',  t:'106 年普考・教育行政'},
+    {src:'assets/score-109di.webp',  t:'109 年地方特考三等・人事行政'},
+    {src:'assets/score-110chu.webp', t:'110 年初等考・一般行政'},
+    {src:'assets/score-110gao.webp', t:'110 年高考三級・人事行政'}
   ];
   var stage=document.getElementById('cStage'), dotsW=document.getElementById('cDots');
   if(!stage) return;
