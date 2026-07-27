@@ -97,6 +97,7 @@
   </div>
 </template>
 <script>
+document.documentElement.classList.add('js');
 var burger=document.getElementById('burger'), links=document.getElementById('links');
 burger.addEventListener('click',function(){links.classList.toggle('open'); burger.classList.toggle('on');});
 links.querySelectorAll('a').forEach(function(a){a.addEventListener('click',function(){links.classList.remove('open'); burger.classList.remove('on');});});
