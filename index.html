@@ -98,7 +98,7 @@
     <div class="hero__copy">
       <h1 class="hero__h1"><span class="hero__l1"><img class="hero__star" src="assets/star.png" alt="" aria-hidden="true">分享上榜的<br class="mobonly">底層邏輯，</span><br>陪伴你備考的每一天。</h1>
       <p class="hero__sub">掌握快速上榜者都在用的備考技巧，<br>才是快速上岸的核心關鍵。</p>
-      <a class="btn hero__btn" href="#news">訂閱電子報</a>
+      <a class="btn hero__btn" href="#resources">所有資源</a>
     </div>
   </div>
 </section>
@@ -134,7 +134,6 @@
   </div>
 </section>
 
-<span id="resources" style="display:block;position:relative;top:-90px;"></span>
 <div class="dividerwrap"><img class="divider reveal" src="assets/divider-book.webp" alt="國考國家考試備考書籍與放大鏡插畫"></div>
 <div class="reshead">
   <div class="wrap reshead__grid">
@@ -142,6 +141,7 @@
     <div class="reshead__col"><h2 class="reshead__title reveal">所有資源</h2></div>
   </div>
 </div>
+<span id="resources" style="display:block;position:relative;top:-90px;"></span>
 <!-- 3.5 · LEAD MAGNET -->
 <section class="leadmag" id="leadmag">
   <div class="wrap leadmag__grid">
@@ -205,12 +205,12 @@
     <div class="feedback__carousel">
       <button class="feedback__arrow feedback__arrow--l" aria-label="上一則" onclick="window.__fbStep(-1)">‹</button>
       <div class="feedback__track" id="feedbackTrack">
-        <div class="feedback__card"><img src="assets/feedback-03.jpg" alt="學員回饋截圖 1" width="896" height="495" loading="lazy"></div>
+        <div class="feedback__card"><img src="assets/feedback-01.jpg" alt="學員回饋截圖 1" width="837" height="628" loading="lazy"></div>
         <div class="feedback__card"><img src="assets/feedback-02.jpg" alt="學員回饋截圖 2" width="641" height="601" loading="lazy"></div>
-        <div class="feedback__card"><img src="assets/feedback-01.jpg" alt="學員回饋截圖 3" width="837" height="628" loading="lazy"></div>
+        <div class="feedback__card"><img src="assets/feedback-03.jpg" alt="學員回饋截圖 3" width="896" height="495" loading="lazy"></div>
         <div class="feedback__card"><img src="assets/feedback-04.jpg" alt="學員回饋截圖 4" width="808" height="208" loading="lazy"></div>
         <div class="feedback__card"><img src="assets/feedback-05.jpg" alt="學員回饋截圖 5" width="629" height="142" loading="lazy"></div>
-        <div class="feedback__card"><img src="assets/feedback-03.jpg" alt="" width="896" height="495" loading="lazy"></div>
+        <div class="feedback__card"><img src="assets/feedback-01.jpg" alt="" width="837" height="628" loading="lazy"></div>
         <div class="feedback__card"><img src="assets/feedback-02.jpg" alt="" width="641" height="601" loading="lazy"></div>
       </div>
       <button class="feedback__arrow feedback__arrow--r" aria-label="下一則" onclick="window.__fbStep(1)">›</button>
@@ -289,7 +289,7 @@
         <a href="https://zora-7.kit.com/profile?_gl=1*zb73t7*_gcl_aw*R0NMLjE3ODQwMzY2NjQuQ2p3S0NBand2TmZTQmhCaUVpd0F5YUdNQ2J4dkpoNUtqRm11SXFZOWlBRXY5Rm45UnktOGdZdGRLakhrLXdnZlBscy15am9rZTNSSEJSb0NQWUlRQXZEX0J3RQ" target="_blank" rel="noopener">訂閱電子報</a>
         <a href="terms.html">服務條款</a>
         <a href="privacy.html">隱私權政策</a>
-        <a href="refund-policy.html">退費政策</a>
+        <a href="refund-policy.html">退換貨政策</a>
       </div>
     </div>
     <div class="footer__base">© 2026 國考學姐 Zora．All rights reserved.</div>
@@ -385,7 +385,7 @@ document.querySelectorAll('.btn-attn').forEach(function(el){bio.observe(el);});
 })();
 
 /* =========================================================
-   Sanity 串接：自動抓「穩定上岸指南系列文章」最新 3 篇
+   Sanity 串接：自動抓「穩定上岸指南系列文章」最新 6 篇
    只要把下面 projectId 填成你的，就會自動帶入文章；
    還沒填或抓不到時，會保留現有的靜態卡片，畫面不會壞。
    ========================================================= */
@@ -399,16 +399,26 @@ var SANITY = {
   var grid = document.getElementById('guide-grid');
   if(!grid) return;
   var query = '*[_type=="post" && !(_id in path("drafts.**"))]'
-            + '|order(featured desc, coalesce(publishedAt,_createdAt) desc)[0...3]'
+            + '|order(featured desc, coalesce(publishedAt,_createdAt) desc)[0...6]'
             + '{title,"slug":slug.current,"id":_id,"cover":mainImage.asset->url,'
             + '"tag":coalesce(category, categories[0]->title)}';
   var url = 'https://' + SANITY.projectId + '.apicdn.sanity.io/v' + SANITY.apiVersion
           + '/data/query/' + SANITY.dataset + '?query=' + encodeURIComponent(query);
+  var PIN_FIRST_ID = '01ead852-8d2a-42db-a636-6613699d1a2b';
+  var PIN_LAST_SLUG = 'https://www.zoraexam.com/fitornot';
   fetch(url)
     .then(function(r){ return r.json(); })
     .then(function(res){
       var posts = (res && res.result) || [];
       if(!posts.length) return;
+      var first = posts.find(function(p){ return p.id===PIN_FIRST_ID; });
+      var last = posts.find(function(p){ return p.slug===PIN_LAST_SLUG; });
+      var rest = posts.filter(function(p){ return p.id!==PIN_FIRST_ID && p.slug!==PIN_LAST_SLUG; });
+      var ordered = [];
+      if(first) ordered.push(first);
+      ordered = ordered.concat(rest);
+      if(last) ordered.push(last);
+      posts = ordered.slice(0,6);
       grid.innerHTML = posts.map(function(p){
         var ph = p.cover
           ? '<div class="gcard__ph" style="background:url(' + p.cover + ') center/cover;"></div>'

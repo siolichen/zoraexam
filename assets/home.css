@@ -9,7 +9,7 @@
   --cream-card:  #F8F2E6;   /* cards on salmon */
   --salmon:      #F2A78F;   /* pain / coach / footer band */
   --salmon-soft: #F7C9B8;   /* light accents, shape behind photo */
-  --pale-yellow: #FBF3D6;   /* below-hero section background */
+  --pale-yellow: #F7F0E2;   /* below-hero section background */
   --coral:       #CB6440;   /* buttons */
   --coral-deep:  #B5542F;   /* button hover */
   --coral-text:  #D26A3E;   /* headings / accents */
@@ -33,12 +33,12 @@
 }
 
 *{ box-sizing:border-box; }
-html{ scroll-behavior:smooth; scroll-padding-top:90px; overflow-x:clip; overscroll-behavior-x:none; }
+html{ scroll-behavior:smooth; scroll-padding-top:90px; overflow-x:hidden; overscroll-behavior-x:none; }
 body{
   margin:0; font-family:var(--font); color:var(--ink); background:var(--cream);
   line-height:1.9; letter-spacing:.02em; font-weight:400;
   -webkit-font-smoothing:antialiased; text-rendering:optimizeLegibility;
-  overflow-x:clip; overscroll-behavior-x:none; width:100%; max-width:100%;
+  overflow-x:hidden; overscroll-behavior-x:none; width:100%; max-width:100%;
 }
 img{ max-width:100%; display:block; }
 a{ color:inherit; text-decoration:none; }
@@ -104,7 +104,7 @@ p{ margin:0; text-wrap:pretty; }
 .contact2__btn{width:100%}
 @media (max-width:900px){.contact2__grid{grid-template-columns:1fr 1fr}}
 @media (max-width:640px){.contact2__grid{grid-template-columns:1fr}}
-.scorecar{position:relative;max-width:640px;margin:0 auto 50px;display:flex;align-items:center;gap:16px}
+.scorecar{position:relative;max-width:780px;margin:0 auto 50px;display:flex;align-items:center;gap:16px}
 .scorecar__view{flex:1;aspect-ratio:900/700;border-radius:16px;overflow:hidden;box-shadow:var(--sh-sm);position:relative;background:#fff}
 .scorecar__view img{position:absolute;inset:0;width:100%;height:100%;object-fit:contain;opacity:0;transition:opacity .5s ease}
 .scorecar__view img.on{opacity:1}
@@ -269,7 +269,7 @@ p{ margin:0; text-wrap:pretty; }
 }
 .sticker.reveal{ transition:opacity 1.5s ease, transform 1.5s cubic-bezier(.2,.8,.2,1); }
 
-.nav--pale{ background:rgba(251,243,214,.9); }
+.nav--pale{ background:rgba(247,240,226,.9); }
 .about{ background:var(--pale-yellow); padding:0 0 50px; }
 .about__intro{ display:grid; grid-template-columns:1fr 1fr; gap:40px; align-items:start; }
 .about__title{ color:var(--green); font-size:clamp(1.8rem,3.4vw,2.6rem); line-height:1.4; }
@@ -528,7 +528,7 @@ p{ margin:0; text-wrap:pretty; }
   .news__form button{ align-self:flex-start; }
   .news__copy p{ max-width:none; }
   /* mobile only: justify body text (左右對齊) */
-  .pcard p, .about__copy, .free__copy p, .citem__b p, .coach__lead, .ccard p, .declare p, .news__copy p, .about__intro > p, .free__lead, .free__note{ text-align:justify; }
+  .pcard p, .about__copy, .free__copy p, .citem__b p, .coach__lead, .ccard p, .declare p, .news__copy p, .about__intro > p, .free__lead, .free__note{ text-align:left; }
   /* mobile: body text max 80% width, centered for more side breathing room */
   .about__intro > p, .about__copy, .free__copy p, .free__lead, .free__note, .coach__lead, .news__copy p{ max-width:80vw; margin-left:auto; margin-right:auto; }
   .footer__in{ flex-direction:column; text-align:center; }
