@@ -379,7 +379,7 @@ document.querySelectorAll('.btn-attn').forEach(function(el){bio.observe(el);});
   };
   if(!(window.matchMedia && window.matchMedia('(prefers-reduced-motion:reduce)').matches) && window.innerWidth>600){
     var started=false;
-    var vio=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting && !started){started=true;setInterval(step,15000);vio.disconnect();}})},{threshold:.3});
+    var vio=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting && !started){started=true;setInterval(step,10000);vio.disconnect();}})},{threshold:.3});
     vio.observe(track);
   }
 })();
