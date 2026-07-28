@@ -61,7 +61,8 @@ p{ margin:0; text-wrap:pretty; }
   background:var(--bg); color:var(--fg); box-shadow:var(--sh-sm);
   transition:transform .25s cubic-bezier(.2,.8,.2,1), box-shadow .25s, background .25s;
 }
-.btn:hover{ transform:translateY(-3px); box-shadow:var(--sh-md); background:linear-gradient(140deg, #D9764F 0%, var(--coral-deep) 80%); }
+.btn:hover{ transform:translateY(-3px) scale(1.06); animation-play-state:paused; box-shadow:var(--sh-md); background:linear-gradient(140deg, #D9764F 0%, var(--coral-deep) 80%); }
+.btn{ animation:ctaPulse 1.7s ease-in-out infinite; }
 .btn .arr{ transition:transform .25s; }
 .btn:hover .arr{ transform:translateX(4px); }
 .btn--lg{ padding:22px 54px; font-size:1.4rem; border-radius:999px; }
