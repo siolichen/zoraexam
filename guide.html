@@ -316,9 +316,9 @@ var SANITY = { projectId:'j8qrcd98', dataset:'production', apiVersion:'2024-01-0
                                   : 'article.html?id='+encodeURIComponent(p.id); }
 
   var query = '*[_type=="post" && !(_id in path("drafts.**"))]'
-            + '|order(featured desc, coalesce(publishedAt,_createdAt) desc)'
+            + '|order(coalesce(publishedAt,_createdAt) desc)'
             + '{title,"slug":slug.current,"id":_id,"cover":mainImage.asset->url,'
-            + '"tag":coalesce(category, categories[0]->title),featured,publishedAt,"excerpt":pt::text(body)}';
+            + '"tag":coalesce(category, categories[0]->title),publishedAt,"excerpt":pt::text(body)}';
   var url='https://'+SANITY.projectId+'.apicdn.sanity.io/v'+SANITY.apiVersion
         +'/data/query/'+SANITY.dataset+'?query='+encodeURIComponent(query);
 
@@ -339,7 +339,7 @@ var SANITY = { projectId:'j8qrcd98', dataset:'production', apiVersion:'2024-01-0
     if(featured){
       featured.innerHTML =
         '<div class="featured__img" style="background:'+(f.cover?'url('+f.cover+') center/cover':'var(--card-warm)')+';">'
-        + '<span class="featured__tag">'+(f.featured?'置頂・必讀':'最新文章')+'</span></div>'
+        + '<span class="featured__tag">最新文章</span></div>'
         + '<div class="featured__body">'
         + (f.tag?'<span class="eyebrow">'+esc(f.tag)+'</span>':'')
         + '<h2>'+esc(f.title)+'</h2>'
